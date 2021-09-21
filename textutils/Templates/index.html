@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <title>Text Utils</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">TextUtils.in</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutus">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contactus">Contact us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </nav>
+
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Welcome to TextUtils </strong> You can do anything with your text here!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="container">
+    <form action='/analyse' method='POST'>
+        
+      {% csrf_token %} <!-- I have use CSRF Token to provide security to my website from malicious website because 
+      CSRF Token only allows the Post method which you have applied in your website and it blocks the other users request
+      to damage our website -->
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Enter your text here and let Text Utils do the magic </label>
+        <textarea class="form-control mt-1 " name="text" id="exampleFormControlTextarea1" rows="8"></textarea>
+      </div>
+
+      <div class="form-check form-switch mt-1">
+        <input class="form-check-input" name="removepunc" type="checkbox" id="flexSwitchCheckDefault1">
+        <label class="form-check-label" for="flexSwitchCheckDefault1">Remove Punctuations</label>
+      </div>
+
+      <div class="form-check form-switch mt-1">
+        <input class="form-check-input" name="fullcaps" type="checkbox" id="flexSwitchCheckDefault2">
+        <label class="form-check-label" for="flexSwitchCheckDefault2">UPPERCASE</label>
+      </div>
+
+      <div class="form-check form-switch mt-1">
+        <input class="form-check-input" name="newlineremover" type="checkbox" id="flexSwitchCheckDefault3">
+        <label class="form-check-label" for="flexSwitchCheckDefault3">New Line Remover</label>
+      </div>
+
+      <div class="form-check form-switch mt-1">
+        <input class="form-check-input" name="extraspaceremover" type="checkbox" id="flexSwitchCheckDefault4">
+        <label class="form-check-label" for="flexSwitchCheckDefault4">Extra Space Remover</label>
+      </div>
+
+      <div class="form-check form-switch mt-1">
+        <input class="form-check-input" name="charcounter" type="checkbox" id="flexSwitchCheckDefault5">
+        <label class="form-check-label" for="flexSwitchCheckDefault5">Character Counter</label> &nbsp; <b>(Use this only when other buttons are off)</b>
+      </div>
+
+      <button type="submit" class="btn btn-success mt-2">Analyse Text</button>
+    </form>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
