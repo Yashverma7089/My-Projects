@@ -48,8 +48,9 @@
 
   <div class="container">
     <form action='/analyse' method='POST'>
-        
-      {% csrf_token %} <!-- I have use CSRF Token to provide security to my website from malicious website because 
+
+      {% csrf_token %}
+      <!-- I have use CSRF Token to provide security to my website from malicious website because 
       CSRF Token only allows the Post method which you have applied in your website and it blocks the other users request
       to damage our website -->
 
@@ -80,7 +81,8 @@
 
       <div class="form-check form-switch mt-1">
         <input class="form-check-input" name="charcounter" type="checkbox" id="flexSwitchCheckDefault5">
-        <label class="form-check-label" for="flexSwitchCheckDefault5">Character Counter</label> &nbsp; <b>(Use this only when other buttons are off)</b>
+        <label class="form-check-label" for="flexSwitchCheckDefault5">Character Counter</label> &nbsp; <b>(Use this only
+          when other buttons are off)</b>
       </div>
 
       <button type="submit" class="btn btn-success mt-2">Analyse Text</button>
